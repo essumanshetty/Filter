@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Filter</title>
+    <link rel="stylesheet" href="index.css" />
+
+    <script src="https://cdn.jsdelivr.net/gh/maxshuty/accessible-web-components@latest/dist/simpleRange.min.js"></script>
+  </head>
+  <body>
+    <h3 class="txt-center my">Javascript Filter</h3>
+    <div class="container">
+      <div class="leftOption">
+        <div class="title">
+          <p class="heading">Filters</p>
+        </div>
+        <div class="price">
+          <p class="heading">Price</p>
+          <div>
+            <p>Min</p>
+            <p>Max</p>
+          </div>
+          <input
+            type="range"
+            name="minMax"
+            id="minMax"
+            min="0"
+            max="30000"
+            step="5000"
+          />
+        </div>
+        <div class="ratings">
+          <p class="heading">Customer Ratings</p>
+          <div>
+            <input type="checkbox" name="four" id="four">
+            <label for="four">4&#9733; & above</label>
+          </div>
+          <div>
+            <input type="checkbox" name="three" id="three">
+            <label for="four">3&#9733; & above</label>
+          </div>
+          <div>
+            <input type="checkbox" name="two" id="two">
+            <label for="four">2&#9733; & above</label>
+          </div>
+          <div>
+            <input type="checkbox" name="one" id="one">
+            <label for="four">1&#9733; & above</label>
+          </div>
+         
+       
+        </div>
+        <div class="brand">
+          <p class="heading">brand</p>
+          <div>
+            <input type="checkbox" name="hero" id="hero">
+            <label for="hero">Hero</label>
+          </div>
+          <div>
+            <input type="checkbox" name="hercules" id="hercules">
+            <label for="hercules">Hercules</label>
+          </div>
+          <div>
+            <input type="checkbox" name="vector" id="vector">
+            <label for="vector">Vector</label>
+          </div>
+          <div>
+            <input type="checkbox" name="adrenex" id="adrenex">
+            <label for="adrenex">Adrenex</label>
+          </div>
+          <div>
+            <input type="checkbox" name="leader" id="leader">
+            <label for="leader">Leader</label>
+          </div>
+          <div>
+            <input type="checkbox" name="urban" id="urban">
+            <label for="urban">Urban</label>
+          </div>
+          <div>
+            <input type="checkbox" name="beast" id="beast">
+            <label for="beast">Beast</label>
+          </div>
+        </div>
+
+        <div class="buttonContainer">
+          <button class="btn">Apply</button>
+        </div>
+      </div>
+      <div class="rightCards">
+        <!-- <div class="card">
+          <div class="cardImg">
+            <img
+              src="https://rukminim1.flixcart.com/image/612/612/kx7vc7k0/cycle/z/h/h/-original-imag9ps8f8qmga5h.jpeg?q=70"
+            />
+          </div>
+          <div class="cardBody">
+            <p class="name my">Vector 91 Beast 29 T Mountain Cycle</p>
+
+            <p class="rating my">4⭐</p>
+            <p class="price my">13919 	&#8377;</p>
+            <p class="brand my">Vector</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardImg">
+            <img
+              src="https://rukminim1.flixcart.com/image/612/612/kx7vc7k0/cycle/z/h/h/-original-imag9ps8f8qmga5h.jpeg?q=70"
+            />
+          </div>
+          <div class="cardBody">
+            <p class="name my">Vector 91 Beast 29 T Mountain Cycle</p>
+
+            <p class="rating my">4⭐</p>
+            <p class="price my">13919</p>
+            <p class="brand my">Vector</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
