@@ -72,10 +72,11 @@ var Cycles = [
   },
 ];
 
+var filters = Cycles;
 
-window.onload = function () {
-
-  Cycles.map((cycle) => {
+function displayCards() {
+  document.querySelector(".rightCards").innerHTML = "";
+  filters.map((cycle) => {
     let card = document.createElement("div");
     card.classList.add("card");
     let cardImg = document.createElement("div");
@@ -84,24 +85,23 @@ window.onload = function () {
     img.src = cycle.img;
     let cardBody = document.createElement("div");
     let name = document.createElement("p");
-    name.classList.add('name')
-    name.classList.add('my')
+    name.classList.add("name");
+    name.classList.add("my");
     name.innerHTML = cycle.name;
 
-
     let rating = document.createElement("p");
-    rating.classList.add('rating')
-    rating.classList.add('my')
+    rating.classList.add("rating");
+    rating.classList.add("my");
     rating.innerHTML = cycle.rating + "⭐";
 
     let price = document.createElement("p");
-    price.innerHTML = cycle.price + ' &#8377;';
-    price.classList.add('price');
-    price.classList.add('my');
+    price.innerHTML = cycle.price + " &#8377;";
+    price.classList.add("price");
+    price.classList.add("my");
 
     let brand = document.createElement("p");
     brand.innerHTML = cycle.brand;
-    brand.classList.add('brand');
+    brand.classList.add("brand");
 
     cardImg.append(img);
     cardBody.append(name);
@@ -112,8 +112,77 @@ window.onload = function () {
     card.append(cardImg);
     card.append(cardBody);
 
-
-    let rightCards = document.querySelector('.rightCards');
+    let rightCards = document.querySelector(".rightCards");
     rightCards.append(card);
   });
+}
+
+window.onload = function () {
+  // Cycles.map((cycle) => {
+  //   let card = document.createElement("div");
+  //   card.classList.add("card");
+  //   let cardImg = document.createElement("div");
+  //   cardImg.classList.add("cardImg");
+  //   let img = document.createElement("img");
+  //   img.src = cycle.img;
+  //   let cardBody = document.createElement("div");
+  //   let name = document.createElement("p");
+  //   name.classList.add("name");
+  //   name.classList.add("my");
+  //   name.innerHTML = cycle.name;
+
+  //   let rating = document.createElement("p");
+  //   rating.classList.add("rating");
+  //   rating.classList.add("my");
+  //   rating.innerHTML = cycle.rating + "⭐";
+
+  //   let price = document.createElement("p");
+  //   price.innerHTML = cycle.price + " &#8377;";
+  //   price.classList.add("price");
+  //   price.classList.add("my");
+
+  //   let brand = document.createElement("p");
+  //   brand.innerHTML = cycle.brand;
+  //   brand.classList.add("brand");
+
+  //   cardImg.append(img);
+  //   cardBody.append(name);
+  //   cardBody.append(rating);
+  //   cardBody.append(price);
+  //   cardBody.append(brand);
+
+  //   card.append(cardImg);
+  //   card.append(cardBody);
+
+  //   let rightCards = document.querySelector(".rightCards");
+  //   rightCards.append(card);
+  // });
+  displayCards();
 };
+
+function changePrice() {
+  let minMax = document.querySelector("#minMax").value;
+  let priceChip = document.querySelector(".priceChip");
+  priceChip.innerHTML = "1000 - " + minMax;
+}
+
+displayPriceValue = () => {
+  let minMax = document.querySelector("#minMax").value;
+  return minMax;
+};
+
+function results(range) {
+  filters = Cycles.filter((cycle) => cycle.price <= range);
+  displayCards();
+}
+
+function applyFilters() {
+  let range = displayPriceValue();
+  // console.log(range);
+  results(range);
+}
+
+function removeFilters() {
+  filters = Cycles;
+  displayCards();
+}

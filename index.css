@@ -30,12 +30,29 @@ body {
 }
 /* Classes for layout */
 .leftOption {
-  flex: 0.5;
+  flex: 0.60;
   background-color: #fff;
   margin-right: 10px;
   padding: 1rem;
 
 }
+
+.leftOption .title div {
+  display: grid;
+  align-items: center;
+  margin-top: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.leftOption .title div p {
+  background-color: #ccc;
+  padding : 8px 10px;
+  color: rgb(10, 10, 10);
+  font-weight: 600;
+}
+
+
 .leftOption > div {
   border-bottom: 1px solid rgb(231, 211, 211);
   padding: 1rem 0;
