@@ -117,6 +117,8 @@ function displayCards() {
   });
 }
 
+
+
 window.onload = function () {
   // Cycles.map((cycle) => {
   //   let card = document.createElement("div");
@@ -245,4 +247,26 @@ function applyFilters() {
 function removeFilters() {
   filters = Cycles;
   displayCards();
+}
+
+
+// Add Listener to check or uncheck 
+let allRate =document.querySelectorAll("input[type=checkbox]")
+let allFilter = document.querySelector('.allFilter');
+
+for (j in allRate) {
+  allRate[j].addEventListener('change', function() {
+    if(this.checked) {
+      let p = document.createElement("p");
+      p.classList.add ("priceChip");
+      p.id =this.id;
+      p.textContent = this.id
+      allFilter.append(p)
+      console.log(this)
+    }else {
+      let ele = document.getElementById(this.id);
+      ele.remove()
+      console.log(ele)
+    }
+  })
 }
