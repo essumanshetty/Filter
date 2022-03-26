@@ -171,15 +171,75 @@ displayPriceValue = () => {
   return minMax;
 };
 
-function results(range) {
-  filters = Cycles.filter((cycle) => cycle.price <= range);
-  displayCards();
+function results(range, ratings, selectedBrands) {
+  // console.log(range, ratings , selectedBrands )
+  if (range) {
+    // console.log("coming" )
+    filters = filters.filter((cycle) => cycle.price <= range);
+  }
+  // console.log("filters ... after price", filters);
+  if (ratings.length) {
+    // console.log("coming 2" )
+    ratings.reverse();
+    // console.log(ratings[0]);
+    filters = filters.filter((cycle) => cycle.rating >= ratings[0]);
+  }
+
+  if (selectedBrands.length) {
+    // console.log("coming 3" )
+    let empty = [];
+
+    // Brand filter
+    for (i in selectedBrands) {
+      for (j in filters) {
+        if (filters[j].brand == selectedBrands[i]) {
+          empty.push(filters[j]);
+        }
+      }
+    }
+    // console.log(empty);
+    filters = empty;
+  }
+}
+
+function getCheckedRatings() {
+  let checked = document.getElementsByName("rate");
+  // Convert Node List to array...
+  checked = Array.from(checked);
+
+  checked = checked.filter((item) => item.checked == true);
+  checked = checked.map((item) => item.id);
+  // applyRatings(checked);
+
+  return checked;
+}
+
+function getBrands() {
+  let brands = document.getElementsByName("brand");
+  let temp = [];
+  for (i in brands) {
+    if (brands[i].checked) {
+      temp.push(brands[i].id);
+    }
+  }
+  return temp;
 }
 
 function applyFilters() {
   let range = displayPriceValue();
-  // console.log(range);
-  results(range);
+
+  let ratings = getCheckedRatings();
+
+  let selectedBrands = getBrands();
+
+  // console.log(selectedBrands);
+
+  results(range, ratings, selectedBrands);
+
+  setTimeout(() => {
+    displayCards();
+    filters = Cycles;
+  }, 500);
 }
 
 function removeFilters() {
